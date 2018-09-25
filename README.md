@@ -471,5 +471,31 @@ lx('body').on('scroll', lx.createThrottle(() => {
      console.log(lx('body')[0].offsetHeight)
 }, 100))
 ```
-
-
+#### formatDate 格式化时间<br>
+支持: lx.formateDate()<br>
+语法: lx.createDate(patternString, number|new Date())<br>
+将时间格式化<br>
+实例:<br>
+```javascript
+formatDate('YYYY-MM-DD hh:mm:ss', new Date(2018, 8, 22, 8, 8, 8)) // '2018-09-22 08:08:08'
+formatDate('Y-M-D h:m:s', new Date(2018, 8, 22, 8, 8, 8)) // '2018-9-22 8:8:8'
+formatDate('YYYY-MM-DD hh:mm:ss', 1537545448184) // '2018-09-21 23:57:28'
+```
+#### delHtmlTag 删除富文本(html)标签<br>
+支持: lx.delHtmlTag()<br>
+语法: lx.delHtmlTag(string)<br>
+删除合法的富文本标签<br>
+实例:<br>
+```javascript
+delHtmlTag('<div data-index="index">text<img src="src"/></div>') // 'text'
+delHtmlTag('<h1>这是h1的内容!<a href="a.com">详情可点击</a></><img src="a.jpg" />') // '这是h1的内容!详情可点击'
+delHtmlTag('<啦啦啦 />123456<123></input aaa>') // '<啦啦啦 />123456<123>'
+```
+#### htmlEncode html关键字符转码<br>
+支持: lx.htmlEncode()<br>
+语法: lx.htmlEncode(string)<br>
+对html关键字符进行转码<br>
+实例:<br>
+```javascript
+htmlEncode('<script></script>') // '&lt;script&gt;&lt;/script&gt;'
+```
